@@ -84,7 +84,7 @@ a:hover{
     align-items: center;
     justify-content: center;
     background-color:white;
-    transition:width var(--transtime) ease-in, height var(--transtime) ease-in, transform 0.25s ease-out;
+    transition:width var(--transtime) ease-out, height var(--transtime) ease-in, transform 0.25s ease-out;
     overflow:hidden;
     z-index: 10;
 }

@@ -1,122 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.css">
-</head>
-<body class="transbg">
-    <div class="headpad container">
-    <table class='table'>
-        <tr>
-            <th>Date</th>
-            <th>Notes</th>
-            <th>Amount</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-        <tr>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-            <td>bleh</td>
-        </tr>
-    </table>
-</div>
-</body>
+<html>
+    <head>
+        <title>Expense Manager</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link type='text/css' rel='stylesheet' href='bootstrap.css'>
+        <link type='text/css' rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <div class='maindiv'>
+            <div class='topnavbar shad shadonhover'>
+                <ul>
+                    <li><a href=''>Bank</a></li>
+                    <li><a href=''>home</a></li>
+                    <li><a href=''>X</a></li>
+                    <li><a href=''>Personalification</a></li>
+                </ul>
+            </div>
+            <div class='actbut shad shadonhover' onclick='action_show()'>
+                <center class="actcenter">+</center>
+                <div class="actstuff">
+                    <div><a href="#">New Log</a></div>
+                    <div><a href="#">New Account</a></div>
+                </div>
+            </div>
+            <aside class="sidebar shad" onblur='sidebar_hide()'>
+               <a class="sidebarhambug" onclick="sidebar_show()">
+                   <div></div>
+                   <div></div>
+                   <div></div>
+               </a>
+               <nav>
+                  <h1>Profile</h1>
+                   <ul>
+                       <li>Jitin</li>
+                       <li><form action=""><input type="Password" placeholder="Change Password" maxlength="20"></form></li>
+                       <li><a href="logs.html">Logs</a></li>
+                       <li><a href="#">Manage Accounts</a></li>
+                       <li><a href="#">Sign Out</a></li>
+                   </ul>
+               </nav>
+            </aside>
+            <iframe src="log_d.html" frameborder="0" class="theframe"></iframe>
+        </div>
+        <script>
+            var actions=false, sidebar=false;
+            sidebarbut=document.getElementsByClassName('sidebar')[0];
+            sidebarhambug=document.getElementsByClassName('sidebarhambug')[0];
+            hambugline=sidebarhambug.children;
+            actbut=document.getElementsByClassName('actbut')[0];
+            actcenter=document.getElementsByClassName('actcenter')[0];
+            actstuff=document.getElementsByClassName('actstuff')[0];
+            console.log(sidebarhambug.childNodes[1].style.transform);
+//            function lock(){thelock=true;console.log('LOCKED');}
+//            function unlock(){thelock=false;console.log('UNLOCKED');}
+            function action_show(){
+                console.log('showing actions');
+                if (!actions){
+                    console.log(actcenter + actcenter.style);
+                    actions=true;
+                    actbut.style.transform="translate(calc(-100% - 25px), calc(-100% - 25px))";
+                    actbut.style.width="50vw";
+                    actcenter.style.display="none";
+                    actstuff.style.display="block";
+                }
+                else action_hide()
+            }
+            document.getElementsByClassName('sidebar')[0].addEventListener("onclick", action_hide(), true);
+            console.log(document.getElementsByTagName('iframe')[0]);
+            function action_hide(){
+                console.log('hiding actions');
+                if (actions){
+                    actions=false;
+                    actbut.style.transform="translate(calc(-100% - 25px), calc(-100% - 25px))";
+                    actbut.style.width="50px";
+                    actcenter.style.display="block";
+                    actstuff.style.display="none";
+                }
+            }
+            function sidebar_show(){
+                console.log("showing sidebar");
+                if (!sidebar){
+                    console.log(sidebarbut + sidebarbut.style);
+                    sidebar=true;
+                    sidebarbut.style.transform="translateX(0)";
+                    sidebarhambug.style.transform="translateX(-100%)";
+//                    for(var x=1; x<=5; x+=2)
+//                        sidebarhambug.childNodes[x].style.backgroundColor='white';
+                    sidebarhambug.childNodes[1].style.transform="rotate(-390deg)";
+                    sidebarhambug.childNodes[5].style.transform="rotate(390deg)";
+                    sidebarbut.focus();
+                }
+                else sidebar_hide();
+            }
+            function sidebar_hide(){
+                console.log('hiding sidebar');
+                if (sidebar){
+                    sidebar=false;
+                    sidebarbut.style.transform="translateX(-50vw)";
+                    sidebarhambug.style.transform="translateX(0)";
+                    sidebarhambug.childNodes[1].style.transform="rotate(0deg)";
+                    sidebarhambug.childNodes[5].style.transform="rotate(0deg)";
+                }
+            }
+        </script>
+    </body>
 </html>
